@@ -19,7 +19,7 @@ Artisan::command('inspire', function () {
 })->describe('Display an inspiring quote');
 
 
-Artisan::command('crudbooster:seedme',function() {
+Artisan::command('cbapps:seedme',function() {
 
 	$composer_path = '';
 	if (file_exists(getcwd().'/composer.phar')) {
@@ -84,7 +84,7 @@ class DefaultData extends Seeder {
 
 })->describe('Install SSM');
 
-Artisan::command('ssm:install',function() {
+Artisan::command('cbapps:install',function() {
 	$this->info("SSM INSTALLATION");
 
 	Schema::disableForeignKeyConstraints();
@@ -109,7 +109,7 @@ Artisan::command('ssm:install',function() {
 	$this->info("DONE");
 });
 
-Artisan::command('ssm:fakeme',function() {
+Artisan::command('cbapps:fakeme',function() {
 	$faker = Faker::create();
 
 	Schema::disableForeignKeyConstraints();
