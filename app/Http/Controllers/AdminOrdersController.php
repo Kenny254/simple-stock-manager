@@ -307,6 +307,11 @@
 	    */
 	    public function hook_after_add($id) {        
 	        //Your code here
+	    	$order_detail = DB::table('orders_detail')->where('orders_id',$id)->get();	    	
+	    	foreach($order_detail as $od) {
+	    		$p = DB::table('products')->where('id',$od->products_id)->first();
+	    		DB::table('products')->where('id',$od->products_id)->update(['stock'=> abs($p->stock - $od->quantity) ]);
+	    	}
 
 	    }
 

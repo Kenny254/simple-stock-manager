@@ -18,12 +18,11 @@ class CreateOrders extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->integer('customers_id')->nullable();
-            $table->string('order_number',25)->nullable();
-            
-            $table->double('total');
-            $table->double('tax');
-            $table->double('discount');
-            $table->double('grand_total');
+            $table->string('order_number',25)->nullable();            
+            $table->double('total')->default(0);
+            $table->double('tax')->default(0);
+            $table->double('discount')->default(0);
+            $table->double('grand_total')->default(0);
         });
     }
 

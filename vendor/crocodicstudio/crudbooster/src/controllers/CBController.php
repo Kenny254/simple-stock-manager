@@ -952,7 +952,7 @@ class CBController extends Controller {
 		$this->arr=array_filter($this->arr); // null array fix 
 		DB::table($this->table)->insert($this->arr);
 
-		$this->hook_after_add($this->arr[$this->primary_key]);
+		
 
 
 		//Looping Data Input Again After Insert
@@ -1026,6 +1026,8 @@ class CBController extends Controller {
 			}
 		}
 
+		$this->hook_after_add($this->arr[$this->primary_key]);
+
 
 		$this->return_url = ($this->return_url)?$this->return_url:Request::get('return_url');
 
@@ -1086,7 +1088,7 @@ class CBController extends Controller {
 		$this->arr=array_filter($this->arr); // null array fix 
 		DB::table($this->table)->where($this->primary_key,$id)->update($this->arr);
 
-		$this->hook_after_edit($id);
+		
 
 		//Looping Data Input Again After Insert
 		foreach($this->data_inputan as $ro) {
@@ -1173,6 +1175,8 @@ class CBController extends Controller {
 
 
 		}
+
+		$this->hook_after_edit($id);
 
 
 		$this->return_url = ($this->return_url)?$this->return_url:Request::get('return_url');
